@@ -17,6 +17,7 @@
   > sudo sh setup-repos.sh<br>
   > sudo  apt-get install --install-recommends webmin<br>
 ## Installing PXE Server
+This is a configuration to boot a winpe from Ubuntu<br>
 - sudo apt install tftpd-hpa
 - sudo systemctl enable tftpd-hpa
 - sudo nano /etc/default/tftpd-hpa
@@ -36,6 +37,7 @@
   - boot.wim
   - other files....
 ## Installing DHCP Server
+This configuration is built for dynamic DNS from DHCP updates. With the PXE boot configuration
 - sudo apt install isc-dhcp-server bind9 bind9utils
 - cd /etc/bind
 - sudo ddns-confgen FQDN_of_DNS_SERVER, see the next statement, you weel need part of that output
