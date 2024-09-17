@@ -32,3 +32,12 @@
 - test: tftp 172.28.206.13
 - In the folder /srv/tftp put the following files, these can be found in the windows toolkit and the Windows PE add-on
 ## Installing DHCP Server
+- sudo apt install isc-dhcp-server bind9 bind9utils
+- cd /etc/bind
+- sudo ddns-confgen gtm-lab-dns-01.gtm.logitech.com, see the next statement, you weel need part of that output
+- sudo nano dhcp1.key and add the following lines from the above output
+  > key "gtm-lab-dns-01.gtm.logitech.com" { <br>
+  >          algorithm hmac-sha256;<br>
+  >           secret "UwStCApuHV9XsaiTonPhVZYOZzXXDUuIgozobLwd/w0=";<br>
+  > };
+  - Install webmn (just makes it easier)
