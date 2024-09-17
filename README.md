@@ -103,4 +103,25 @@
 - Getting the status of bind: sudo systemctl status bind9
 - Looking through the log files: sudo tail -f /var/log/syslog
 - When editng dns entries in webmin, you must first freeze the zone
-
+## Installing Samba
+- Install webmn, it helps when dealing with files.  But not required
+- fdisk -l to list all the disks
+- to configure the disk: fdisk /dev/sdX
+- press n to create a new partiion
+- press w to write the configuration
+- format the parition: mkfs -t ext4 -q /dev/sdx1
+- create a directory to mount: sudo mkdir /srv/imaging
+- mount: sudo mount -t ext4 /dev/sdx1 /srv/imaging
+- Permently mount:
+- sudo nano /etc/fstab
+  >/dev/sdx1       /srv/imaging    ext4    defaults        0       0
+ - create a new share: sudo nano /etc/samba/smb.conf
+   > [imaging]<br>
+   > comment = system deployment images<br>
+   > path = /srv/imaging<br>
+   > read only = no<br>
+   > browsable = yes<br>
+   > writeable = Yes<br>
+- Fix perrmisions on the share: 
+  - sudo chown nobody:nogroup /srv
+  - sudo chmod 777 /srv/imaging/
