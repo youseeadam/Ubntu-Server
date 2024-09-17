@@ -1,4 +1,4 @@
-# UbntuServer
+
 ## Basic System Configuration
 - Updating: sudo apt udpate, sudo apt upgrade
 - Timezone: timedatectl list-timezones, sudo timedatectl set-timezone America/Los_Angeles
